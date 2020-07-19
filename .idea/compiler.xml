@@ -6,9 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="client" />
-        <module name="server" />
+        <module name="provider-test" />
         <module name="chillrpc-common" />
+        <module name="consumer-test" />
         <module name="chillrpc-core" />
         <module name="test-service" />
       </profile>

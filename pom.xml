@@ -9,8 +9,8 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>client</module>
-        <module>server</module>
+        <module>consumer-test</module>
+        <module>provider-test</module>
         <module>test-service</module>
         <module>chillrpc-common</module>
         <module>chillrpc-core</module>
