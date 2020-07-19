@@ -10,8 +10,8 @@ import lombok.ToString;
 import java.io.Serializable;
 
 /**
- * @author shuang.kou
- * @createTime 2020年05月10日 07:04:00
+ * @author NIU
+ * @createTime 2020年07月20日 02:21:00
  */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,7 +19,7 @@ import java.io.Serializable;
 @Setter
 @Builder
 @ToString
-public class Hello implements Serializable {
+public class Test implements Serializable {
     private String message;
     private String description;
 }
