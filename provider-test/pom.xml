@@ -10,6 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>provider-test</artifactId>
-
+    <dependencies>
+        <dependency>
+            <groupId>club.chillman</groupId>
+            <artifactId>chillrpc-core</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 </project>

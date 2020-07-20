@@ -1,4 +1,7 @@
 package club.chillman.rpccore.transport;
+
+import club.chillman.rpccore.transport.dto.RemoteRequest;
+
 /**
  *  消费者的RPC请求发送接口
  *
@@ -8,8 +11,8 @@ package club.chillman.rpccore.transport;
 public interface ConsumerTransport {
     /**
      *  发送
-     * @param rpcRequest 消息体
+     * @param remoteRequest 消息体
      * @return 服务提供者返回的数据
      */
-    Object sendRpcRequest(RpcRequest rpcRequest);
+    Object sendRemoteRequest(RemoteRequest remoteRequest);
 }

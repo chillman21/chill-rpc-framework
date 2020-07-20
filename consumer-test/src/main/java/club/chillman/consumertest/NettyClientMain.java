@@ -2,6 +2,8 @@ package club.chillman.consumertest;
 
 import club.chillman.Test;
 import club.chillman.TestService;
+import club.chillman.rpccore.transport.ConsumerTransport;
+import club.chillman.rpccore.transport.netty.consumer.NettyConsumerTransport;
 
 /**
  * 服务消费者测试类
@@ -11,8 +13,8 @@ import club.chillman.TestService;
  */
 public class NettyClientMain {
     public static void main(String[] args) {
-        ClientTransport rpcClient = new NettyClientTransport();
-        RpcClientProxy rpcClientProxy = new RpcClientProxy(rpcClient);
+        ConsumerTransport remoteConsumer = new NettyConsumerTransport();
+        RpcClientProxy rpcClientProxy = new RpcClientProxy(remoteConsumer);
         TestService testService = rpcClientProxy.getProxy(TestService.class);
         String hello = testService.hello(new Test("111", "222"));
         System.out.println(hello);
