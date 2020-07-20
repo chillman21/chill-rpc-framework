@@ -7,18 +7,18 @@ import club.chillman.rpccore.transport.dto.RemoteResponse;
 import club.chillman.rpccore.transport.netty.codec.kryo.NettyKryoDecoder;
 import club.chillman.rpccore.transport.netty.codec.kryo.NettyKryoEncoder;
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.IdleStateHandler;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 
 import java.net.InetSocketAddress;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -26,6 +26,7 @@ import java.util.concurrent.TimeUnit;
  * @author NIU
  * @createTime 2020/7/20 23:26
  */
+@Slf4j
 public final class NettyConsumer {
     private static Bootstrap bootstrap;
     // 事件循环线程组
@@ -44,18 +45,42 @@ public final class NettyConsumer {
                     @Override
                     protected void initChannel(SocketChannel ch) {
                         //如果 15 秒之内没有发送数据给服务端的话，就发送一次心跳请求
+                        /**
+                         * 1. IdleStateHandler 是netty 提供的处理空闲状态的处理器
+                         * 2. long readerIdleTime : 表示多长时间没有读, 就会发送一个心跳检测包检测是否连接
+                         * 3. long writerIdleTime : 表示多长时间没有写, 就会发送一个心跳检测包检测是否连接
+                         * 4. long allIdleTime : 表示多长时间没有读写, 就会发送一个心跳检测包检测是否连接
+                         */
                         ch.pipeline().addLast(new IdleStateHandler(0, 5, 0, TimeUnit.SECONDS));
                         /*自定义序列化编解码器*/
-                        // RpcResponse -> ByteBuf
+                        // RemoteResponse -> ByteBuf
                         ch.pipeline().addLast(new NettyKryoDecoder(kryoSerializer, RemoteResponse.class));
-                        // ByteBuf -> RpcRequest
+                        // ByteBuf -> RemoteRequest
                         ch.pipeline().addLast(new NettyKryoEncoder(kryoSerializer, RemoteRequest.class));
                         ch.pipeline().addLast(new NettyConsumerHandler());
                     }
                 });
     }
-
+    @SneakyThrows
     public Channel doConnect(InetSocketAddress inetSocketAddress) {
-        return null;
+        CompletableFuture<Channel> completableFuture = new CompletableFuture<>();
+        bootstrap.connect(inetSocketAddress).addListener(new ChannelFutureListener() {
+            //这里的future就是connect事件返回的ChannelFuture对象
+            @Override
+            public void operationComplete(ChannelFuture future) throws Exception {
+                if (future.isSuccess()) {
+                    log.info("Consumer端连接成功!");
+                    completableFuture.complete(future.channel());
+                } else {
+                    throw new IllegalStateException();
+                }
+            }
+        });
+        return completableFuture.get();
+    }
+
+    public void close() {
+        log.info("call close method");
+        eventLoopGroup.shutdownGracefully();
     }
 }

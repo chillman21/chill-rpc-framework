@@ -38,8 +38,9 @@ public class NettyConsumerTransport implements ConsumerTransport {
             // 放入未处理的请求
             unprocessedRequests.put(remoteRequest.getRequestId(), resultFuture);
             channel.writeAndFlush(remoteRequest).addListener((ChannelFutureListener) future -> {
+                // 请求是否发送成功
                 if (future.isSuccess()) {
-                    log.info("client send message: [{}]", remoteRequest);
+                    log.info("consumer send message: [{}]", remoteRequest);
                 } else {
                     future.channel().close();
                     resultFuture.completeExceptionally(future.cause());
@@ -47,7 +48,7 @@ public class NettyConsumerTransport implements ConsumerTransport {
                 }
             });
         } else {
-            throw new IllegalStateException();
+            throw new IllegalStateException("sendRemoteRequest failed");
         }
 
         return resultFuture;
