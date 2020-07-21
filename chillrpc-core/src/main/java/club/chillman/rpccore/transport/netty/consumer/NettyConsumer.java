@@ -22,7 +22,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 用于初始化 和 关闭 Bootstrap 对象
+ * 用于初始化和关闭 Consumer 端的 Bootstrap 对象
  * @author NIU
  * @createTime 2020/7/20 23:26
  */

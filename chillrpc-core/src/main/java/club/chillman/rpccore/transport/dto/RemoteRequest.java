@@ -16,7 +16,8 @@ import java.io.Serializable;
 @Builder
 @ToString
 public class RemoteRequest implements Serializable {
-    private static final long serialVersionUID = 270512241950251207L;
+
+    private static final long serialVersionUID = 3397613090402197789L;
     // RPC请求的ID
     private String requestId;
     // 所请求的接口名称

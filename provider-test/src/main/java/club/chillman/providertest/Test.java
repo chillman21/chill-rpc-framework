@@ -9,6 +9,6 @@ import org.apache.curator.framework.CuratorFramework;
  */
 public class Test {
     public static void main(String[] args) {
-        CuratorFramework zkClient = ZooKeeperUtils.getZkClient();
+
     }
 }

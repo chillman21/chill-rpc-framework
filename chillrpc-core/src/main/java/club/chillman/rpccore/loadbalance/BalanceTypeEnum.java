@@ -14,6 +14,8 @@ import lombok.ToString;
 @ToString
 public enum BalanceTypeEnum {
     RANDOM_ACCESS(new RandomLoadBalance());
+
+
     private LoadBalance loadBalance;
 
 }

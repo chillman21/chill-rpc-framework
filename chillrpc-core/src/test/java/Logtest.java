@@ -8,5 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 public class Logtest {
     public static void main(String[] args) {
         log.info("shabi");
+        String string = Man.builder().name("shakou").toString();
+        log.error(string);
     }
 }

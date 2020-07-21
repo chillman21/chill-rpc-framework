@@ -18,7 +18,7 @@ import java.io.Serializable;
 @ToString
 public class RemoteResponse<T> implements Serializable {
 
-    private static final long serialVersionUID = 270512241950251211L;
+    private static final long serialVersionUID = -1870038525818498001L;
     // 响应ID
     private String responseId;
     // 响应码
