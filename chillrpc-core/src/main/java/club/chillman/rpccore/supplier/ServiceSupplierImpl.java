@@ -1,4 +1,4 @@
-package club.chillman.rpccore.supplier.impl;
+package club.chillman.rpccore.supplier;
 
 import club.chillman.rpccommon.enumeration.RemoteErrorMessageEnum;
 import club.chillman.rpccommon.exception.RemoteException;

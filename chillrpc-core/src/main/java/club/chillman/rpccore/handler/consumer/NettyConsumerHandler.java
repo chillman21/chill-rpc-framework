@@ -84,7 +84,7 @@ public class NettyConsumerHandler extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        log.error("client catch exception：", cause);
+        log.error("consumer端捕获到异常：", cause);
         cause.printStackTrace();
         ctx.close();
     }

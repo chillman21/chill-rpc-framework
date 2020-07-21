@@ -40,9 +40,9 @@ public class RemoteResponse<T> implements Serializable {
     }
 
     public static <T> RemoteResponse<T> error(RemoteResponseCode responseCode){
-        RemoteResponse<T> response = RemoteResponse.<T>builder().build();
-        response.setCode(responseCode.getCode());
-        response.setMessage(responseCode.getMessage());
-        return response;
+        return RemoteResponse.<T>builder()
+                .code(responseCode.getCode())
+                .message(responseCode.getMessage())
+                .build();
     }
 }
