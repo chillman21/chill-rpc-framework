@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab96eaaa-ce6c-4ea3-a751-8c1ec483a205" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/roundrobin/RoundRobinLoadBalance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/BalanceTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/BalanceTypeEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/random/RandomLoadBalance.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/random/RandomLoadBalance.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +163,7 @@
       <workItem from="1595224715483" duration="14705000" />
       <workItem from="1595245371978" duration="18354000" />
       <workItem from="1595310802940" duration="32498000" />
-      <workItem from="1595388030543" duration="26435000" />
+      <workItem from="1595388030543" duration="27046000" />
     </task>
     <task id="LOCAL-00001" summary="更正">
       <created>1595181085329</created>
@@ -245,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595418868650</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="线程池增加，序列化增加JDK原生序列化、fastjson序列化，负载均衡增加一致性哈希算法">
+      <created>1595424814531</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1595424814531</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,11 +296,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595255776722" />
-    <state x="405" y="0" key="CommitChangelistDialog2" timestamp="1595418866844">
+    <state x="405" y="0" key="CommitChangelistDialog2" timestamp="1595424813580">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="324" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1595267074137" />
-    <state x="405" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595418866844" />
+    <state x="405" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595424813580" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1595423904907">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -348,11 +352,11 @@
     </state>
     <state x="270" y="54" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1595262945371" />
     <state x="338" y="68" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1595323087803" />
-    <state x="451" y="183" key="Vcs.Push.Dialog.v2" timestamp="1595418872109">
+    <state x="451" y="183" key="Vcs.Push.Dialog.v2" timestamp="1595424821851">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1595261740402" />
-    <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595418872109" />
+    <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595424821851" />
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1595245375720">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
