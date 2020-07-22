@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
+ * 随机访问
  * @author NIU
  * @createTime 2020/7/21 0:16
  */

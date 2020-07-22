@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab96eaaa-ce6c-4ea3-a751-8c1ec483a205" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/consistenthash/ConsistentHashLoadBalance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/serialize/jdk/JdkSerializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/serialize/json/JsonSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/NIU.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/NIU.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/roundrobin/RoundRobinLoadBalance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-common/src/main/java/club/chillman/rpccommon/enumeration/RemoteErrorMessageEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-common/src/main/java/club/chillman/rpccommon/enumeration/RemoteErrorMessageEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-common/src/main/java/club/chillman/rpccommon/utils/concurrent/ThreadPoolFactoryUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-common/src/main/java/club/chillman/rpccommon/utils/concurrent/ThreadPoolFactoryUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/discovery/ServiceDiscovery.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/discovery/ServiceDiscovery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/discovery/ZooKeeperServiceDiscovery.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/discovery/ZooKeeperServiceDiscovery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/AbstractLoadBalance.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/AbstractLoadBalance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/BalanceTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/BalanceTypeEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/LoadBalance.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/LoadBalance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/random/RandomLoadBalance.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/random/RandomLoadBalance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/consumer/NettyConsumerTransport.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/consumer/NettyConsumerTransport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consumer-test/src/main/java/club/chillman/consumertest/ConsumerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-test/src/main/java/club/chillman/consumertest/ConsumerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +166,7 @@
       <workItem from="1595224715483" duration="14705000" />
       <workItem from="1595245371978" duration="18354000" />
       <workItem from="1595310802940" duration="32498000" />
-      <workItem from="1595388030543" duration="23559000" />
+      <workItem from="1595388030543" duration="26435000" />
     </task>
     <task id="LOCAL-00001" summary="更正">
       <created>1595181085329</created>
@@ -251,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595403004826</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="线程池增加，序列化增加JDK原生序列化、fastjson序列化，负载均衡增加一致性哈希算法">
+      <created>1595418868650</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1595418868650</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +261,8 @@
     <MESSAGE value="基本完成，目前还差编解码以及序列化" />
     <MESSAGE value="序列化编解码完成" />
     <MESSAGE value="框架基本完成，有几点需要优化，如线程池限流，负载均衡方法增加。" />
-    <option name="LAST_COMMIT_MESSAGE" value="框架基本完成，有几点需要优化，如线程池限流，负载均衡方法增加。" />
+    <MESSAGE value="线程池增加，序列化增加JDK原生序列化、fastjson序列化，负载均衡增加一致性哈希算法" />
+    <option name="LAST_COMMIT_MESSAGE" value="线程池增加，序列化增加JDK原生序列化、fastjson序列化，负载均衡增加一致性哈希算法" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="90" key="#Project_Structure" timestamp="1595402987590">
@@ -275,11 +270,11 @@
     </state>
     <state x="361" y="71" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1595181375958" />
     <state x="451" y="90" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1595402987590" />
-    <state x="718" y="154" width="581" height="581" key="#com.intellij.ide.util.MemberChooser" timestamp="1595409520153">
+    <state x="718" y="154" width="581" height="581" key="#com.intellij.ide.util.MemberChooser" timestamp="1595424294037">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1595262623665" />
-    <state x="718" y="154" width="581" height="581" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595409520153" />
+    <state x="718" y="154" width="581" height="581" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595424294037" />
     <state x="484" y="445" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1595323358357">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -297,16 +292,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595255776722" />
-    <state x="405" y="0" key="CommitChangelistDialog2" timestamp="1595403004196">
+    <state x="405" y="0" key="CommitChangelistDialog2" timestamp="1595418866844">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="324" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1595267074137" />
-    <state x="405" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595403004196" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1595404181394">
+    <state x="405" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595418866844" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1595423904907">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="592" y="218" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1595266363385" />
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595404181394" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595423904907" />
     <state x="45" y="82" width="1314" height="682" key="GrepConsoleSettings" timestamp="1595317748899">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -353,11 +348,11 @@
     </state>
     <state x="270" y="54" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1595262945371" />
     <state x="338" y="68" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1595323087803" />
-    <state x="451" y="183" key="Vcs.Push.Dialog.v2" timestamp="1595403010395">
+    <state x="451" y="183" key="Vcs.Push.Dialog.v2" timestamp="1595418872109">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1595261740402" />
-    <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595403010395" />
+    <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595418872109" />
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1595245375720">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -370,10 +365,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="708" y="238" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595403554871" />
-    <state x="636" y="253" width="653" height="534" key="find.popup" timestamp="1595407649607">
+    <state x="636" y="253" width="653" height="534" key="find.popup" timestamp="1595423968622">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="636" y="253" width="653" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595407649607" />
+    <state x="636" y="253" width="653" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595423968622" />
     <state x="334" y="214" key="new project wizard" timestamp="1595172739203">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
