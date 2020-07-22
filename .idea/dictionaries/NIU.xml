@@ -3,7 +3,9 @@
     <words>
       <w>chillman</w>
       <w>chillrpc</w>
+      <w>consumertest</w>
       <w>fastjson</w>
+      <w>providertest</w>
       <w>rootpath</w>
     </words>
   </dictionary>

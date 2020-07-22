@@ -31,7 +31,7 @@ public class SocketRemoteConsumer implements ConsumerTransport {
 
     @Override
     public Object sendRemoteRequest(RemoteRequest remoteRequest) {
-        InetSocketAddress inetSocketAddress = serviceDiscovery.findService(remoteRequest.getInterfaceName());
+        InetSocketAddress inetSocketAddress = serviceDiscovery.findService(remoteRequest.getInterfaceName(),remoteRequest);
         // try块退出时，会自动调用socket.close()方法，关闭资源。
         try (Socket socket = new Socket()) {
             socket.connect(inetSocketAddress);
