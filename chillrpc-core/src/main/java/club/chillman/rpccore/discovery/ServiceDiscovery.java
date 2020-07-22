@@ -1,5 +1,7 @@
 package club.chillman.rpccore.discovery;
 
+import club.chillman.rpccore.transport.dto.RemoteRequest;
+
 import java.net.InetSocketAddress;
 
 /**
@@ -15,5 +17,5 @@ public interface ServiceDiscovery {
      * @param serviceName 服务名称
      * @return 提供服务的地址
      */
-    InetSocketAddress findService(String serviceName);
+    InetSocketAddress findService(String serviceName, RemoteRequest remoteRequest);
 }

@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.ToString;
 
 /**
+ * 负载均衡枚举类
  * @author NIU
  * @createTime 2020/7/21 0:22
  */

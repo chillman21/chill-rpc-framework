@@ -4,6 +4,7 @@ import club.chillman.rpccore.loadbalance.BalanceTypeEnum;
 import club.chillman.rpccommon.utils.ZooKeeperUtils;
 import club.chillman.rpccore.loadbalance.LoadBalance;
 import club.chillman.rpccore.loadbalance.random.RandomLoadBalance;
+import club.chillman.rpccore.transport.dto.RemoteRequest;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.InetSocketAddress;
@@ -22,17 +23,20 @@ public class ZooKeeperServiceDiscovery implements ServiceDiscovery{
     public ZooKeeperServiceDiscovery(BalanceTypeEnum balanceTypeEnum) {
         this.loadBalance = balanceTypeEnum.getLoadBalance();
     }
+    public ZooKeeperServiceDiscovery(LoadBalance loadBalance) {
+        this.loadBalance = loadBalance;
+    }
 
     public ZooKeeperServiceDiscovery() {
         this.loadBalance = new RandomLoadBalance();
     }
 
     @Override
-    public InetSocketAddress findService(String serviceName) {
+    public InetSocketAddress findService(String serviceName, RemoteRequest remoteRequest) {
         // 这里直接去了第一个找到的服务地址,eg:127.0.0.1:9999
         List<String> serviceUrlList = ZooKeeperUtils.getChildrenNodes(serviceName);
         // 负载均衡
-        String targetServiceUrl = loadBalance.selectServiceAddress(serviceUrlList);
+        String targetServiceUrl = loadBalance.selectServiceAddress(serviceUrlList, remoteRequest);
         log.info("成功找到服务地址:[{}]", targetServiceUrl);
         String[] socketAddressArray = targetServiceUrl.split(":");
         String host = socketAddressArray[0];

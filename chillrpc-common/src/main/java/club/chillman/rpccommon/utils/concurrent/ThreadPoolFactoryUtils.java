@@ -1,5 +1,6 @@
 package club.chillman.rpccommon.utils.concurrent;
 
+import club.chillman.rpccommon.exception.RemoteException;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import lombok.extern.slf4j.Slf4j;
 
@@ -16,11 +17,12 @@ public final class ThreadPoolFactoryUtils {
 
     /**
      * 相同 threadNamePrefix 的线程池代表同一业务场景
-     * TODO :通过信号量机制( {@link Semaphore} 满足条件)限制创建的线程池数量（线程池和线程不是越多越好）
      * key: threadNamePrefix
      * value: threadPool
      */
     private static Map<String, ExecutorService> threadPools = new ConcurrentHashMap<>();
+    //通过信号量机制( {@link Semaphore} 满足条件)限制创建的线程池数量（线程池和线程不是越多越好）
+    private static Semaphore semaphore = new Semaphore(100);
 
     private ThreadPoolFactoryUtils() {
     }
@@ -71,6 +73,7 @@ public final class ThreadPoolFactoryUtils {
         threadPools.entrySet().parallelStream().forEach(entry -> {
             ExecutorService executorService = entry.getValue();
             executorService.shutdown();
+            semaphore.release();
             log.info("shut down thread pool [{}] [{}]", entry.getKey(), executorService.isTerminated());
             try {
                 //任务成功完成或失败直到超时
@@ -83,10 +86,16 @@ public final class ThreadPoolFactoryUtils {
     }
 
     private static ExecutorService createThreadPool(DefaultThreadPoolConfig customThreadPoolConfig, String threadNamePrefix, Boolean daemon) {
-        ThreadFactory threadFactory = createThreadFactory(threadNamePrefix, daemon);
-        return new ThreadPoolExecutor(customThreadPoolConfig.getCorePoolSize(), customThreadPoolConfig.getMaximumPoolSize(),
-                customThreadPoolConfig.getKeepAliveTime(), customThreadPoolConfig.getUnit(), customThreadPoolConfig.getWorkQueue(),
-                threadFactory);
+
+        try {
+            ThreadFactory threadFactory = createThreadFactory(threadNamePrefix, daemon);
+            semaphore.acquire();
+            return new ThreadPoolExecutor(customThreadPoolConfig.getCorePoolSize(), customThreadPoolConfig.getMaximumPoolSize(),
+                    customThreadPoolConfig.getKeepAliveTime(), customThreadPoolConfig.getUnit(), customThreadPoolConfig.getWorkQueue(),
+                    threadFactory);
+        } catch (InterruptedException e) {
+            throw new RemoteException(e.getMessage(), e.getCause());
+        }
     }
 
     /**

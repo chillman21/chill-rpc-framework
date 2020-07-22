@@ -1,5 +1,7 @@
 package club.chillman.rpccore.loadbalance;
 
+import club.chillman.rpccore.transport.dto.RemoteRequest;
+
 import java.util.List;
 
 /**
@@ -14,5 +16,5 @@ public interface LoadBalance {
      * @param serviceAddresses 服务地址列表
      * @return 目标服务地址
      */
-    String selectServiceAddress(List<String> serviceAddresses);
+    String selectServiceAddress(List<String> serviceAddresses, RemoteRequest remoteRequest);
 }

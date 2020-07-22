@@ -1,5 +1,7 @@
 package club.chillman.rpccore.loadbalance;
 
+import club.chillman.rpccore.transport.dto.RemoteRequest;
+
 import java.util.List;
 
 /**
@@ -8,14 +10,14 @@ import java.util.List;
  */
 public abstract class AbstractLoadBalance implements LoadBalance{
     @Override
-    public String selectServiceAddress(List<String> serviceAddresses) {
+    public String selectServiceAddress(List<String> serviceAddresses, RemoteRequest remoteRequest) {
         if (serviceAddresses == null || serviceAddresses.size() == 0) {
             return null;
         }
         if (serviceAddresses.size() == 1) {
             return serviceAddresses.get(0);
         }
-        return doSelect(serviceAddresses);
+        return doSelect(serviceAddresses, remoteRequest);
     }
 
     /**
@@ -23,5 +25,5 @@ public abstract class AbstractLoadBalance implements LoadBalance{
      * @param serviceAddresses 服务地址列表
      * @return string 目标服务地址
      */
-    protected abstract String doSelect(List<String> serviceAddresses);
+    protected abstract String doSelect(List<String> serviceAddresses, RemoteRequest remoteRequest);
 }

@@ -3,6 +3,8 @@ package club.chillman.rpccore.transport.netty.consumer;
 import club.chillman.rpccommon.factoy.SingletonFactory;
 import club.chillman.rpccore.discovery.ServiceDiscovery;
 import club.chillman.rpccore.discovery.ZooKeeperServiceDiscovery;
+import club.chillman.rpccore.loadbalance.BalanceTypeEnum;
+import club.chillman.rpccore.loadbalance.LoadBalance;
 import club.chillman.rpccore.transport.dto.RemoteRequest;
 import club.chillman.rpccore.transport.dto.RemoteResponse;
 import club.chillman.rpccore.transport.netty.common.ChannelPool;
@@ -24,6 +26,14 @@ public class NettyConsumerTransport implements ConsumerTransport {
     private final ServiceDiscovery serviceDiscovery;
     private final UnprocessedRequests unprocessedRequests;
 
+    public NettyConsumerTransport(BalanceTypeEnum balanceTypeEnum) {
+        this.serviceDiscovery = new ZooKeeperServiceDiscovery(balanceTypeEnum);
+        this.unprocessedRequests = SingletonFactory.getInstance(UnprocessedRequests.class);
+    }
+    public NettyConsumerTransport(LoadBalance loadBalance) {
+        this.serviceDiscovery = new ZooKeeperServiceDiscovery(loadBalance);
+        this.unprocessedRequests = SingletonFactory.getInstance(UnprocessedRequests.class);
+    }
     public NettyConsumerTransport() {
         this.serviceDiscovery = new ZooKeeperServiceDiscovery();
         this.unprocessedRequests = SingletonFactory.getInstance(UnprocessedRequests.class);
@@ -33,7 +43,7 @@ public class NettyConsumerTransport implements ConsumerTransport {
     public CompletableFuture<RemoteResponse> sendRemoteRequest(RemoteRequest remoteRequest) {
         // 构建返回值
         CompletableFuture<RemoteResponse> resultFuture = new CompletableFuture<>();
-        InetSocketAddress inetSocketAddress = serviceDiscovery.findService(remoteRequest.getInterfaceName());
+        InetSocketAddress inetSocketAddress = serviceDiscovery.findService(remoteRequest.getInterfaceName(), remoteRequest);
         Channel channel = ChannelPool.get(inetSocketAddress);
         if (channel != null && channel.isActive()) {
             // 放入未处理的请求
