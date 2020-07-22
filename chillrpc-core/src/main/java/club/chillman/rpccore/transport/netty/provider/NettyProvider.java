@@ -52,9 +52,12 @@ public class NettyProvider {
     public <T> void publishService(T service, Class<T> serviceClass) {
         serviceSupplier.putService(service, serviceClass);
         serviceRegistry.registerService(serviceClass.getCanonicalName(), new InetSocketAddress(host, port));
-        start();
+        //start();
     }
-    private void start() {
+    public void start() {
+        if (host == null || port == 0){
+            throw new RuntimeException("Provider未初始化");
+        }
         DefaultShutdownHook defaultShutdownHook = SingletonFactory.getInstance(DefaultShutdownHook.class);
         defaultShutdownHook.clearAll();
         EventLoopGroup bossGroup = new NioEventLoopGroup();

@@ -2,30 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab96eaaa-ce6c-4ea3-a751-8c1ec483a205" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/chillrpc-common/src/main/java/club/chillman/rpccommon/exception/SerializeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/socket/SocketRemoteProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/socket/SocketRemoteRequestRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/consumer-test/src/main/java/club/chillman/consumertest/ConsumerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/provider-test/src/main/java/club/chillman/providertest/TestServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/config/DefaultShutdownHook.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/config/DefaultShutdownHook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/handler/checker/RemoteMessageChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/handler/checker/RemoteMessageChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-common/src/main/java/club/chillman/rpccommon/exception/RemoteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-common/src/main/java/club/chillman/rpccommon/exception/RemoteException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-common/src/main/java/club/chillman/rpccommon/factoy/SingletonFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-common/src/main/java/club/chillman/rpccommon/factoy/SingletonFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/handler/consumer/NettyConsumerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/handler/consumer/NettyConsumerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/proxy/RemoteConsumerProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/proxy/RemoteConsumerProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/serialize/kryo/KryoSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/serialize/kryo/KryoSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/ConsumerTransport.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/consumer/ConsumerTransport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/codec/kryo/NettyKryoDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/codec/kryo/NettyKryoDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/codec/kryo/NettyKryoEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/codec/kryo/NettyKryoEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/consumer/ChannelPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/common/ChannelPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/consumer/NettyConsumerTransport.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/consumer/NettyConsumerTransport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/consumer/UnprocessedRequests.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/common/UnprocessedRequests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/socket/SocketRemoteConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/socket/SocketRemoteConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consumer-test/src/main/java/club/chillman/consumertest/NettyClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-test/src/main/java/club/chillman/consumertest/NettyClientMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/consumer/NettyConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/consumer/NettyConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/provider/NettyProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/provider/NettyProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/consumer-test/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-test/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/consumer-test/src/main/java/club/chillman/consumertest/NettyClientMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/provider-test/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/provider-test/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/provider-test/src/main/java/club/chillman/providertest/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/provider-test/src/main/java/club/chillman/providertest/ProviderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-service/src/main/java/club/chillman/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/src/main/java/club/chillman/serviceapi/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-service/src/main/java/club/chillman/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/src/main/java/club/chillman/serviceapi/TestService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -93,10 +102,16 @@
       <command value="ServiceRegistry" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.ScheduleExecutorTest">
-    <configuration name="CompletableFutureDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CompletableFutureDemo" />
-      <module name="chillrpc-core" />
+  <component name="RunManager" selected="Application.ConsumerTest">
+    <configuration name="ConsumerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="club.chillman.consumertest.ConsumerTest" />
+      <module name="consumer-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="club.chillman.consumertest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -108,16 +123,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Man" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Man" />
+    <configuration name="ParallelStreamTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ParallelStreamTest" />
       <module name="chillrpc-core" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParallelStreamTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ParallelStreamTest" />
-      <module name="chillrpc-core" />
+    <configuration name="ProviderTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="club.chillman.providertest.ProviderTest" />
+      <module name="provider-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="club.chillman.providertest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -131,11 +152,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ConsumerTest" />
+        <item itemvalue="Application.ProviderTest" />
         <item itemvalue="Application.ScheduleExecutorTest" />
         <item itemvalue="Application.ParallelStreamTest" />
         <item itemvalue="Application.Logtest" />
-        <item itemvalue="Application.Man" />
-        <item itemvalue="Application.CompletableFutureDemo" />
       </list>
     </recent_temporary>
   </component>
@@ -155,7 +176,7 @@
       <workItem from="1595224715483" duration="14705000" />
       <workItem from="1595245371978" duration="18354000" />
       <workItem from="1595310802940" duration="32498000" />
-      <workItem from="1595388030543" duration="6927000" />
+      <workItem from="1595388030543" duration="10892000" />
     </task>
     <task id="LOCAL-00001" summary="更正">
       <created>1595181085329</created>
@@ -206,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595355007734</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="序列化编解码完成">
+      <created>1595398351607</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1595398351607</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,18 +248,19 @@
     <MESSAGE value="80%" />
     <MESSAGE value="添加了服务提供接口和实现类" />
     <MESSAGE value="基本完成，目前还差编解码以及序列化" />
-    <option name="LAST_COMMIT_MESSAGE" value="基本完成，目前还差编解码以及序列化" />
+    <MESSAGE value="序列化编解码完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="序列化编解码完成" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="71" key="#Project_Structure" timestamp="1595181375958">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="71" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1595181375958" />
-    <state x="718" y="154" width="581" height="581" key="#com.intellij.ide.util.MemberChooser" timestamp="1595390071850">
+    <state x="718" y="154" width="581" height="581" key="#com.intellij.ide.util.MemberChooser" timestamp="1595398895535">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1595262623665" />
-    <state x="718" y="154" width="581" height="581" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595390071850" />
+    <state x="718" y="154" width="581" height="581" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595398895535" />
     <state x="484" y="445" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1595323358357">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -249,11 +278,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595255776722" />
-    <state x="405" y="0" key="CommitChangelistDialog2" timestamp="1595355005238">
+    <state x="405" y="0" key="CommitChangelistDialog2" timestamp="1595398349294">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="324" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1595267074137" />
-    <state x="405" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595355005238" />
+    <state x="405" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595398349294" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1595350011813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -264,36 +293,52 @@
     </state>
     <state x="36" y="65" width="1314" height="682" key="GrepConsoleSettings/0.0.1536.824@0.0.1536.824" timestamp="1595263285972" />
     <state x="45" y="82" key="GrepConsoleSettings/0.0.1920.1040@0.0.1920.1040" timestamp="1595317748899" />
-    <state width="1877" height="386" key="GridCell.Tab.0.bottom" timestamp="1595355121627">
+    <state width="1877" height="764" key="GridCell.Tab.0.bottom" timestamp="1595402343297">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595267173059" />
-    <state width="1877" height="386" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595355121627" />
-    <state width="1877" height="386" key="GridCell.Tab.0.center" timestamp="1595355121627">
+    <state width="1877" height="764" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595402343297" />
+    <state width="1877" height="764" key="GridCell.Tab.0.center" timestamp="1595402343297">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1595267173059" />
-    <state width="1877" height="386" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595355121627" />
-    <state width="1877" height="386" key="GridCell.Tab.0.left" timestamp="1595355121627">
+    <state width="1877" height="764" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595402343297" />
+    <state width="1877" height="764" key="GridCell.Tab.0.left" timestamp="1595402343297">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1595267173059" />
-    <state width="1877" height="386" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595355121627" />
-    <state width="1877" height="386" key="GridCell.Tab.0.right" timestamp="1595355121627">
+    <state width="1877" height="764" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595402343297" />
+    <state width="1877" height="764" key="GridCell.Tab.0.right" timestamp="1595402343297">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1595267173059" />
-    <state width="1877" height="386" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595355121627" />
+    <state width="1877" height="764" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595402343297" />
+    <state width="1877" height="462" key="GridCell.Tab.1.bottom" timestamp="1595400804522">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="462" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595400804522" />
+    <state width="1877" height="462" key="GridCell.Tab.1.center" timestamp="1595400804522">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="462" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595400804522" />
+    <state width="1877" height="462" key="GridCell.Tab.1.left" timestamp="1595400804522">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="462" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595400804522" />
+    <state width="1877" height="462" key="GridCell.Tab.1.right" timestamp="1595400804522">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="462" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595400804522" />
     <state x="338" y="68" key="SettingsEditor" timestamp="1595323087803">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="270" y="54" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1595262945371" />
     <state x="338" y="68" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1595323087803" />
-    <state x="451" y="183" key="Vcs.Push.Dialog.v2" timestamp="1595355019717">
+    <state x="451" y="183" key="Vcs.Push.Dialog.v2" timestamp="1595398356972">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1595261740402" />
-    <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595355019717" />
+    <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595398356972" />
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1595245375720">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -302,10 +347,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595354300088" />
-    <state x="636" y="253" width="647" height="534" key="find.popup" timestamp="1595398326153">
+    <state x="636" y="253" width="653" height="534" key="find.popup" timestamp="1595401807707">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="636" y="253" width="647" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595398326153" />
+    <state x="636" y="253" width="653" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595401807707" />
     <state x="334" y="214" key="new project wizard" timestamp="1595172739203">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -323,5 +368,16 @@
     </state>
     <state x="498" y="178" width="670" height="538" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1595266666722" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595397160895" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/proxy/RemoteConsumerProxy.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

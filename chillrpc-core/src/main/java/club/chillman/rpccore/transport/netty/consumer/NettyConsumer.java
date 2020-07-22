@@ -1,5 +1,6 @@
 package club.chillman.rpccore.transport.netty.consumer;
 
+import club.chillman.rpccommon.exception.RemoteException;
 import club.chillman.rpccore.handler.consumer.NettyConsumerHandler;
 import club.chillman.rpccore.serialize.kryo.KryoSerializer;
 import club.chillman.rpccore.transport.dto.RemoteRequest;
@@ -69,10 +70,10 @@ public final class NettyConsumer {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
                 if (future.isSuccess()) {
-                    log.info("Consumer端连接成功!");
+                    log.info("Consumer端连接Provider成功!");
                     completableFuture.complete(future.channel());
                 } else {
-                    throw new IllegalStateException();
+                    throw new RemoteException("Consumer端连接Provider失败!");
                 }
             }
         });

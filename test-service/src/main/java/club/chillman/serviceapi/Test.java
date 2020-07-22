@@ -1,4 +1,4 @@
-package club.chillman;
+package club.chillman.serviceapi;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,6 +20,7 @@ import java.io.Serializable;
 @Builder
 @ToString
 public class Test implements Serializable {
-    private String message;
-    private String description;
+    private static final long serialVersionUID = -3325838916375597109L;
+    private String str;
+    private int num;
 }
