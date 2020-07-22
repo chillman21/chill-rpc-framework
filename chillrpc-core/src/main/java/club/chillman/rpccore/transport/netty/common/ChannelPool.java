@@ -1,6 +1,7 @@
-package club.chillman.rpccore.transport.netty.consumer;
+package club.chillman.rpccore.transport.netty.common;
 
 import club.chillman.rpccommon.factoy.SingletonFactory;
+import club.chillman.rpccore.transport.netty.consumer.NettyConsumer;
 import io.netty.channel.Channel;
 import lombok.extern.slf4j.Slf4j;
 

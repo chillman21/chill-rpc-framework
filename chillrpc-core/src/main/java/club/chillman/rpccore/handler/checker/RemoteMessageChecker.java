@@ -8,7 +8,7 @@ import club.chillman.rpccore.transport.dto.RemoteResponse;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 校验 RemoteRequest 和 RemoteRequest
+ * 报文校验 RemoteRequest 和 RemoteRequest
  * @author NIU
  * @createTime 2020/7/21 17:00
  */

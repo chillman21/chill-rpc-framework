@@ -9,11 +9,12 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
-/** TODO
+/**
+ *
  * 自定义解码器。负责处理"入站"消息，将消息格式转换为我们需要的业务对象
  *
- * @author shuang.kou
- * @createTime 2020年05月25日 19:42:00
+ * @author NIU
+ * @createTime 2020/7/22 13:51
  */
 @AllArgsConstructor
 @Slf4j
@@ -32,10 +33,10 @@ public class NettyKryoDecoder extends ByteToMessageDecoder {
      *
      * @param ctx 解码器关联的 ChannelHandlerContext 对象
      * @param in  "入站"数据，也就是 ByteBuf 对象
-     * @param out 解码之后的数据对象需要添加到 out 对象里面
+     * @param result 解码之后的数据对象需要添加到 out List里面
      */
     @Override
-    protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) {
+    protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> result) {
 
         //1.byteBuf中写入的消息长度所占的字节数已经是4了，所以 byteBuf 的可读字节必须大于 4，
         if (in.readableBytes() >= BODY_LENGTH) {
@@ -44,7 +45,7 @@ public class NettyKryoDecoder extends ByteToMessageDecoder {
             //3.读取消息的长度
             //注意： 消息长度是encode的时候我们自己写入的，参见 NettyKryoEncoder 的encode方法
             int dataLength = in.readInt();
-            //4.遇到不合理的情况直接 return
+            //4.遇到不合理的情况直接 return, readableBytes不会移动readIndex
             if (dataLength < 0 || in.readableBytes() < 0) {
                 log.error("data length or byteBuf readableBytes is not valid");
                 return;
@@ -59,8 +60,10 @@ public class NettyKryoDecoder extends ByteToMessageDecoder {
             in.readBytes(body);
             // 将bytes数组转换为我们需要的对象
             Object obj = serializer.deserialize(body, genericClass);
-            out.add(obj);
+            result.add(obj);
             log.info("successful decode ByteBuf to Object");
+        } else {
+            log.error("fail to decode,the message length of byteBuf is less than 4 !");
         }
     }
 }

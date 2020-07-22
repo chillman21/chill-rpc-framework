@@ -1,4 +1,4 @@
-package club.chillman.rpccore.transport.netty.consumer;
+package club.chillman.rpccore.transport.netty.common;
 
 import club.chillman.rpccore.transport.dto.RemoteResponse;
 
@@ -7,6 +7,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * 未处理完毕的请求
  * @author NIU
  * @createTime 2020/7/20 21:48
  */

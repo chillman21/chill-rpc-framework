@@ -3,7 +3,7 @@ package club.chillman.consumertest;
 import club.chillman.Test;
 import club.chillman.TestService;
 import club.chillman.rpccore.proxy.RemoteConsumerProxy;
-import club.chillman.rpccore.transport.ConsumerTransport;
+import club.chillman.rpccore.transport.netty.consumer.ConsumerTransport;
 import club.chillman.rpccore.transport.netty.consumer.NettyConsumerTransport;
 
 /**

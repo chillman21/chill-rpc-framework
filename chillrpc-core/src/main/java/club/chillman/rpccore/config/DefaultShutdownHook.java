@@ -13,6 +13,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public final class DefaultShutdownHook {
 
+//    private static final DefaultShutdownHook DEFAULT_SHUTDOWN_HOOK = new DefaultShutdownHook();
+//
+//    public static DefaultShutdownHook getDefaultShutdownHook() {
+//        return DEFAULT_SHUTDOWN_HOOK;
+//    }
+
     public void clearAll() {
         log.info("addShutdownHook for clearAll");
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {

@@ -1,7 +1,7 @@
 package club.chillman.rpccore.proxy;
 
 import club.chillman.rpccore.handler.checker.RemoteMessageChecker;
-import club.chillman.rpccore.transport.ConsumerTransport;
+import club.chillman.rpccore.transport.netty.consumer.ConsumerTransport;
 import club.chillman.rpccore.transport.dto.RemoteRequest;
 import club.chillman.rpccore.transport.dto.RemoteResponse;
 import club.chillman.rpccore.transport.netty.consumer.NettyConsumerTransport;

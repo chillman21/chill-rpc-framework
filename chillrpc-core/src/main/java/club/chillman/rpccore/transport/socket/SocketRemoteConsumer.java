@@ -3,7 +3,7 @@ package club.chillman.rpccore.transport.socket;
 import club.chillman.rpccommon.exception.RemoteException;
 import club.chillman.rpccore.discovery.ServiceDiscovery;
 import club.chillman.rpccore.discovery.ZooKeeperServiceDiscovery;
-import club.chillman.rpccore.transport.ConsumerTransport;
+import club.chillman.rpccore.transport.netty.consumer.ConsumerTransport;
 import club.chillman.rpccore.transport.dto.RemoteRequest;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

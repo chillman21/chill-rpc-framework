@@ -1,4 +1,4 @@
-package club.chillman.rpccore.transport;
+package club.chillman.rpccore.transport.netty.consumer;
 
 import club.chillman.rpccore.transport.dto.RemoteRequest;
 
