@@ -22,7 +22,7 @@ chill-rpc是一款实用的远程服务调用框架，它实现了许多高性�
 
 - 高性能的服务调用。配置为windows 10 pro+ i5-9300H 4核的情况下(需要说明的一点是：Windows下NioEventLoop不支持最高性能的epoll系统调用，只能用select)，使用淘宝提供的QPS压测工具，单机qps达到3000+。
 
-  ![qps](http://pic.chillman.club/QPS%E6%B5%8B%E8%AF%95.png )
+  ![qps](http://pic.chillman.club/QPS%E6%B5%8B%E8%AF%951.png )
 
 - 实现了kryo、Protostuff、json和jdk原生四种序列化方式。
 
