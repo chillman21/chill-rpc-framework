@@ -1,5 +1,6 @@
 package club.chillman.rpccore.proxy;
 
+import club.chillman.rpccommon.factoy.SingletonFactory;
 import club.chillman.rpccore.handler.checker.RemoteMessageChecker;
 import club.chillman.rpccore.transport.netty.consumer.ConsumerTransport;
 import club.chillman.rpccore.transport.dto.RemoteRequest;
@@ -33,6 +34,10 @@ public class RemoteConsumerProxy implements InvocationHandler {
     }
     public RemoteConsumerProxy(ConsumerTransport consumerTransport, String group) {
         this.consumerTransport = consumerTransport;
+        this.group = group;
+    }
+    public RemoteConsumerProxy(String group) {
+        this.consumerTransport = SingletonFactory.getInstance(NettyConsumerTransport.class);
         this.group = group;
     }
 
