@@ -11,6 +11,6 @@ import club.chillman.serviceapi.TestService;
 public class TestServiceImpl implements TestService {
     @Override
     public String wow(Test test) {
-        return test.getStr() + " wow";
+        return test.getStr() + " wow" + test.getNum();
     }
 }

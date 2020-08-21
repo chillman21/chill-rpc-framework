@@ -1,7 +1,9 @@
 package club.chillman.rpccore.transport.netty.consumer;
 
 import club.chillman.rpccommon.exception.RemoteException;
+import club.chillman.rpccommon.factoy.SingletonFactory;
 import club.chillman.rpccore.handler.consumer.NettyConsumerHandler;
+import club.chillman.rpccore.handler.reconnect.ReconnectHandler;
 import club.chillman.rpccore.serialize.kryo.KryoSerializer;
 import club.chillman.rpccore.transport.dto.RemoteRequest;
 import club.chillman.rpccore.transport.dto.RemoteResponse;
@@ -9,16 +11,20 @@ import club.chillman.rpccore.transport.netty.codec.kryo.NettyKryoDecoder;
 import club.chillman.rpccore.transport.netty.codec.kryo.NettyKryoEncoder;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
+import io.netty.channel.epoll.Epoll;
+import io.netty.channel.epoll.EpollEventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.IdleStateHandler;
+import io.netty.util.AttributeKey;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.InetSocketAddress;
+import java.net.SocketAddress;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
@@ -34,7 +40,7 @@ public final class NettyConsumer {
     private static EventLoopGroup eventLoopGroup;
 
     static {
-        eventLoopGroup = new NioEventLoopGroup();
+        eventLoopGroup = Epoll.isAvailable() ? new EpollEventLoopGroup() : new NioEventLoopGroup();
         bootstrap = new Bootstrap();
         KryoSerializer kryoSerializer = new KryoSerializer();
         bootstrap.group(eventLoopGroup)
@@ -45,6 +51,7 @@ public final class NettyConsumer {
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel ch) {
+                        ch.pipeline().addLast(new ReconnectHandler(SingletonFactory.getInstance(NettyConsumerTransport.class)));
                         //如果 15 秒之内没有发送数据给服务端的话，就发送一次心跳请求
                         /**
                          * 1. IdleStateHandler 是netty 提供的处理空闲状态的处理器
@@ -70,10 +77,12 @@ public final class NettyConsumer {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
                 if (future.isSuccess()) {
-                    log.info("Consumer端连接Provider成功!");
+                    log.info("The consumer side connected to the provider successfully!");
                     completableFuture.complete(future.channel());
                 } else {
-                    throw new RemoteException("Consumer端连接Provider失败!");
+                    System.out.println("****"+ future.channel());
+                    future.channel().pipeline().fireChannelInactive();
+                    throw new RemoteException("Consumer side failed to connect to provider!");
                 }
             }
         });

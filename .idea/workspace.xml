@@ -1,12 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ab96eaaa-ce6c-4ea3-a751-8c1ec483a205" name="Default Changelist" comment="">
+    <list default="true" id="ab96eaaa-ce6c-4ea3-a751-8c1ec483a205" name="Default Changelist" comment="线程池增加，序列化增加JDK原生序列化、fastjson序列化，负载均衡增加一致性哈希算法">
+      <change afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/handler/reconnect/ReconnectHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/serialize/protostuff/ProtostuffSerializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/reconnect/RetryPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/reconnect/retry/ExponentialBackOffRetry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chillrpc-core/src/test/java/ArrayListTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/NIU.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/NIU.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/socket/SocketRemoteConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/socket/SocketRemoteConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consumer-test/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-test/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/provider-test/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/provider-test/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-common/src/main/java/club/chillman/rpccommon/factoy/SingletonFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-common/src/main/java/club/chillman/rpccommon/factoy/SingletonFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-common/src/main/java/club/chillman/rpccommon/utils/ZooKeeperUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-common/src/main/java/club/chillman/rpccommon/utils/ZooKeeperUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/discovery/ZooKeeperServiceDiscovery.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/discovery/ZooKeeperServiceDiscovery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/handler/consumer/NettyConsumerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/handler/consumer/NettyConsumerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/handler/provider/NettyProviderHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/handler/provider/NettyProviderHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/BalanceTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/BalanceTypeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/consistenthash/ConsistentHashLoadBalance.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/consistenthash/ConsistentHashLoadBalance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/roundrobin/RoundRobinLoadBalance.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/loadbalance/roundrobin/RoundRobinLoadBalance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/proxy/RemoteConsumerProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/proxy/RemoteConsumerProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/serialize/Serializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/serialize/Serializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/serialize/kryo/KryoSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/serialize/kryo/KryoSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/supplier/ServiceSupplierImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/supplier/ServiceSupplierImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/common/ChannelPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/common/ChannelPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/consumer/NettyConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/consumer/NettyConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/consumer/NettyConsumerTransport.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/consumer/NettyConsumerTransport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/provider/NettyProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/transport/netty/provider/NettyProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/test/java/Man.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/test/java/Man.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chillrpc-core/src/test/java/ParallelStreamTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/chillrpc-core/src/test/java/ParallelStreamTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/consumer-test/src/main/java/club/chillman/consumertest/ConsumerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-test/src/main/java/club/chillman/consumertest/ConsumerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/provider-test/src/main/java/club/chillman/providertest/TestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/provider-test/src/main/java/club/chillman/providertest/TestServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +93,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../toy-rpc" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../guide-rpc-framework" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -94,6 +119,20 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.ConsumerTest">
+    <configuration name="ArrayListTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ArrayListTest" />
+      <module name="chillrpc-core" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompletableFutureDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CompletableFutureDemo" />
+      <module name="chillrpc-core" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ConsumerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="club.chillman.consumertest.ConsumerTest" />
       <module name="consumer-test" />
@@ -103,20 +142,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Logtest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Logtest" />
-      <module name="chillrpc-core" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ParallelStreamTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ParallelStreamTest" />
-      <module name="chillrpc-core" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -143,11 +168,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ConsumerTest" />
         <item itemvalue="Application.ProviderTest" />
+        <item itemvalue="Application.ConsumerTest" />
+        <item itemvalue="Application.CompletableFutureDemo" />
+        <item itemvalue="Application.ArrayListTest" />
         <item itemvalue="Application.ScheduleExecutorTest" />
-        <item itemvalue="Application.ParallelStreamTest" />
-        <item itemvalue="Application.Logtest" />
       </list>
     </recent_temporary>
   </component>
@@ -168,6 +193,14 @@
       <workItem from="1595245371978" duration="18354000" />
       <workItem from="1595310802940" duration="32498000" />
       <workItem from="1595388030543" duration="28861000" />
+      <workItem from="1595582750787" duration="19868000" />
+      <workItem from="1595648669578" duration="18730000" />
+      <workItem from="1595689973549" duration="803000" />
+      <workItem from="1595760504723" duration="613000" />
+      <workItem from="1596789598817" duration="963000" />
+      <workItem from="1597832745434" duration="3382000" />
+      <workItem from="1597905076804" duration="34979000" />
+      <workItem from="1597994421518" duration="4690000" />
     </task>
     <task id="LOCAL-00001" summary="更正">
       <created>1595181085329</created>
@@ -285,11 +318,11 @@
     </state>
     <state x="361" y="71" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1595181375958" />
     <state x="451" y="90" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1595402987590" />
-    <state x="718" y="154" width="581" height="581" key="#com.intellij.ide.util.MemberChooser" timestamp="1595424294037">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="574" y="122" width="581" height="581" key="#com.intellij.ide.util.MemberChooser" timestamp="1597956731589">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1595262623665" />
-    <state x="718" y="154" width="581" height="581" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595424294037" />
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1597956731589" />
+    <state x="718" y="154" width="581" height="581" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595689989291" />
     <state x="484" y="445" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1595323358357">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -307,57 +340,61 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595255776722" />
-    <state x="405" y="0" key="CommitChangelistDialog2" timestamp="1595433583678">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="269" y="0" key="CommitChangelistDialog2" timestamp="1597949206332">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="324" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1595267074137" />
+    <state x="269" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1597949206332" />
     <state x="405" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595433583678" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1595423904907">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="592" y="218" key="FileChooserDialogImpl" timestamp="1597995163191">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="592" y="218" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1595266363385" />
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595423904907" />
+    <state x="592" y="218" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1597995163191" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595765943233" />
     <state x="45" y="82" width="1314" height="682" key="GrepConsoleSettings" timestamp="1595317748899">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="36" y="65" width="1314" height="682" key="GrepConsoleSettings/0.0.1536.824@0.0.1536.824" timestamp="1595263285972" />
     <state x="45" y="82" key="GrepConsoleSettings/0.0.1920.1040@0.0.1920.1040" timestamp="1595317748899" />
-    <state width="1877" height="357" key="GridCell.Tab.0.bottom" timestamp="1595434990730">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="379" key="GridCell.Tab.0.bottom" timestamp="1597959303727">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595267173059" />
-    <state width="1877" height="357" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595434990730" />
-    <state width="1877" height="357" key="GridCell.Tab.0.center" timestamp="1595434990730">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="379" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1597959303727" />
+    <state width="1877" height="44" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595690776252" />
+    <state width="1493" height="379" key="GridCell.Tab.0.center" timestamp="1597959303727">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1595267173059" />
-    <state width="1877" height="357" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595434990730" />
-    <state width="1877" height="357" key="GridCell.Tab.0.left" timestamp="1595434990730">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="379" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1597959303727" />
+    <state width="1877" height="44" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595690776252" />
+    <state width="1493" height="379" key="GridCell.Tab.0.left" timestamp="1597959303727">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1595267173059" />
-    <state width="1877" height="357" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595434990730" />
-    <state width="1877" height="357" key="GridCell.Tab.0.right" timestamp="1595434990730">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="379" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1597959303727" />
+    <state width="1877" height="44" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595690776252" />
+    <state width="1493" height="379" key="GridCell.Tab.0.right" timestamp="1597959303727">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1595267173059" />
-    <state width="1877" height="357" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595434990730" />
-    <state width="1877" height="462" key="GridCell.Tab.1.bottom" timestamp="1595400804522">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="379" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1597959303727" />
+    <state width="1877" height="44" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595690776252" />
+    <state width="1493" height="379" key="GridCell.Tab.1.bottom" timestamp="1597959303728">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1877" height="462" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595400804522" />
-    <state width="1877" height="462" key="GridCell.Tab.1.center" timestamp="1595400804522">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="379" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1597959303728" />
+    <state width="1877" height="389" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595583758979" />
+    <state width="1493" height="379" key="GridCell.Tab.1.center" timestamp="1597959303728">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1877" height="462" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595400804522" />
-    <state width="1877" height="462" key="GridCell.Tab.1.left" timestamp="1595400804522">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="379" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1597959303728" />
+    <state width="1877" height="389" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595583758979" />
+    <state width="1493" height="379" key="GridCell.Tab.1.left" timestamp="1597959303728">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1877" height="462" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595400804522" />
-    <state width="1877" height="462" key="GridCell.Tab.1.right" timestamp="1595400804522">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="379" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1597959303728" />
+    <state width="1877" height="389" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595583758979" />
+    <state width="1493" height="379" key="GridCell.Tab.1.right" timestamp="1597959303728">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1877" height="462" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595400804522" />
+    <state width="1493" height="379" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1597959303728" />
+    <state width="1877" height="389" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595583758979" />
     <state x="338" y="68" key="SettingsEditor" timestamp="1595323087803">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -368,10 +405,11 @@
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1595261740402" />
     <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595433589497" />
-    <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1595245375720">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="512" y="273" key="com.intellij.ide.util.TipDialog" timestamp="1597995082623">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595245375720" />
+    <state x="512" y="273" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1597995082623" />
+    <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595765922379" />
     <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595407346434">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -380,10 +418,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="708" y="238" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595403554871" />
-    <state x="636" y="253" width="653" height="534" key="find.popup" timestamp="1595423968622">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="509" y="200" width="682" height="534" key="find.popup" timestamp="1597996068067">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="636" y="253" width="653" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595423968622" />
+    <state x="509" y="200" width="682" height="534" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1597996068067" />
+    <state x="636" y="253" width="653" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595675343998" />
     <state x="334" y="214" key="new project wizard" timestamp="1595172739203">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -392,25 +431,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="511" y="30" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1595262327034" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1595354331291">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1595588650773">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595354331291" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1595407380489">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595588650773" />
+    <state x="498" y="178" width="672" height="538" key="search.everywhere.popup" timestamp="1597939636693">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="498" y="178" width="670" height="538" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1595266666722" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595407380489" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/chillrpc-core/src/main/java/club/chillman/rpccore/proxy/RemoteConsumerProxy.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="498" y="178" width="672" height="538" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1597939636693" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595666294452" />
   </component>
 </project>

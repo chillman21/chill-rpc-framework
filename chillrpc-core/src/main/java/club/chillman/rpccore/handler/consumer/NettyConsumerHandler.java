@@ -6,19 +6,18 @@ import club.chillman.rpccore.transport.dto.RemoteRequest;
 import club.chillman.rpccore.transport.dto.RemoteResponse;
 import club.chillman.rpccore.transport.netty.common.ChannelPool;
 import club.chillman.rpccore.transport.netty.common.UnprocessedRequests;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
+import club.chillman.rpccore.transport.reconnect.RetryPolicy;
+import io.netty.channel.*;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import io.netty.util.ReferenceCountUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.InetSocketAddress;
+import java.util.LinkedList;
+import java.util.concurrent.TimeUnit;
 
 /**
- *
  * @author NIU
  * @createTime 2020/7/20 23:56
  */
@@ -31,7 +30,8 @@ public class NettyConsumerHandler extends ChannelInboundHandlerAdapter {
     }
 
     /**
-     * 读取服务提供端传来的消息
+     * 读取服务生产者端传来的消息
+     *
      * @param ctx 上下文对象
      * @param msg 消息对象
      */
@@ -55,6 +55,7 @@ public class NettyConsumerHandler extends ChannelInboundHandlerAdapter {
 
     /**
      * 写空闲事件触发心跳报文
+     *
      * @param ctx 上下文对象
      * @param evt 事件对象
      * @throws Exception
@@ -69,7 +70,14 @@ public class NettyConsumerHandler extends ChannelInboundHandlerAdapter {
                 //心跳报文包生成
                 RemoteRequest remoteRequest = RemoteRequest.builder().remoteMessageTypeEnum(RemoteMessageTypeEnum.HEART_BEAT).build();
                 //发送心跳报文，若发送时失败则关闭channel
-                channel.writeAndFlush(remoteRequest).addListener(ChannelFutureListener.CLOSE_ON_FAILURE);
+                channel.writeAndFlush(remoteRequest).addListener(new ChannelFutureListener() {
+                    @Override
+                    public void operationComplete(ChannelFuture future) {
+                        if (future.channel() != null && !future.isSuccess()) {
+                            future.channel().close();
+                        }
+                    }
+                });
             }
         } else {
             super.userEventTriggered(ctx, evt);
@@ -78,15 +86,18 @@ public class NettyConsumerHandler extends ChannelInboundHandlerAdapter {
 
     /**
      * 处理Consume端消息发生异常的时候被调用
-     * @param ctx 上下文对象
+     *
+     * @param ctx   上下文对象
      * @param cause 异常
      * @throws Exception
      */
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        log.error("consumer端捕获到异常：");
+        log.error("Exception caught on consumer side:");
         log.warn(cause.getMessage());
         cause.getCause();
         ctx.close();
     }
+
+
 }

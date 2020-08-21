@@ -16,6 +16,8 @@ public class ConsumerTest {
         ConsumerTransport consumerTransport = new NettyConsumerTransport(BalanceTypeEnum.RANDOM_ACCESS);
         RemoteConsumerProxy remoteProxy = new RemoteConsumerProxy(consumerTransport);
         TestService testService = remoteProxy.getProxyObject(TestService.class);
-        System.out.println(testService.wow(new Test("aaa", 1)));
+        for (int i = 0; i < 10; i++) {
+            System.out.println(testService.wow(new Test("aaa", i)));
+        }
     }
 }

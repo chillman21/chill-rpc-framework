@@ -129,11 +129,11 @@ public final class ZooKeeperUtils {
     public static void createPersistentNode(String path) {
         try {
             if (registeredPathSet.contains(path) || zkClient.checkExists().forPath(path) != null) {
-                log.info("节点已经存在，节点为:[{}]", path);
+                log.info("Node already exists, node is:[{}]", path);
             } else {
                 //eg: /chill-rpc/club.chillman.TestService/127.0.0.1:9999
                 zkClient.create().creatingParentsIfNeeded().withMode(CreateMode.PERSISTENT).forPath(path);
-                log.info("节点创建成功，节点为:[{}]", path);
+                log.info("The node is created successfully. The node is:[{}]", path);
             }
             registeredPathSet.add(path);
         } catch (Exception e) {
@@ -152,6 +152,6 @@ public final class ZooKeeperUtils {
                 throw new RemoteException(e.getMessage(), e.getCause());
             }
         });
-        log.info("Provider所有注册的服务都被清空:[{}]", registeredPathSet.toString());
+        log.info("Provider all registered services are cleared:[{}]", registeredPathSet.toString());
     }
 }

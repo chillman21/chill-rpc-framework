@@ -58,7 +58,7 @@ public class RemoteConsumerProxy implements InvocationHandler {
         else if (consumerTransport instanceof SocketRemoteConsumer) {
             remoteResponse = (RemoteResponse) consumerTransport.sendRemoteRequest(remoteRequest);
         }
-        //校验 RpcResponse 和 RpcRequest
+        //校验 RpcResponse 和 RpcRequest是否匹配
         RemoteMessageChecker.check(remoteRequest, remoteResponse);
         return remoteResponse.getData();
     }

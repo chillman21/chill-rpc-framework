@@ -5,6 +5,7 @@
       <w>chillrpc</w>
       <w>consumertest</w>
       <w>fastjson</w>
+      <w>protostuff</w>
       <w>providertest</w>
       <w>rootpath</w>
     </words>

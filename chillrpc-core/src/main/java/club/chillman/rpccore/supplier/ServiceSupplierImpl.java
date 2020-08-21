@@ -34,7 +34,7 @@ public class ServiceSupplierImpl implements ServiceSupplier {
         }
         registeredService.add(serviceName);
         serviceMap.put(serviceName, service);
-        log.info("添加服务:【{}】，服务接口名为:【{}】", serviceName, service.getClass().getInterfaces());
+        log.info("add service:【{}】.The service interface name is:【{}】", serviceName, service.getClass().getInterfaces());
     }
 
     @Override

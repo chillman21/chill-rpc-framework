@@ -9,8 +9,11 @@ import club.chillman.rpccore.transport.dto.RemoteRequest;
 import club.chillman.rpccore.transport.dto.RemoteResponse;
 import club.chillman.rpccore.transport.netty.common.ChannelPool;
 import club.chillman.rpccore.transport.netty.common.UnprocessedRequests;
+import club.chillman.rpccore.transport.reconnect.RetryPolicy;
+import club.chillman.rpccore.transport.reconnect.retry.ExponentialBackOffRetry;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFutureListener;
+import io.netty.channel.ChannelHandler;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.InetSocketAddress;
@@ -25,18 +28,28 @@ import java.util.concurrent.CompletableFuture;
 public class NettyConsumerTransport implements ConsumerTransport {
     private final ServiceDiscovery serviceDiscovery;
     private final UnprocessedRequests unprocessedRequests;
+    private final RetryPolicy retryPolicy;
 
     public NettyConsumerTransport(BalanceTypeEnum balanceTypeEnum) {
         this.serviceDiscovery = new ZooKeeperServiceDiscovery(balanceTypeEnum);
         this.unprocessedRequests = SingletonFactory.getInstance(UnprocessedRequests.class);
+        this.retryPolicy = new ExponentialBackOffRetry(2000, 10, 60 * 1000);
     }
+    public NettyConsumerTransport(BalanceTypeEnum balanceTypeEnum, RetryPolicy retryPolicy) {
+        this.serviceDiscovery = new ZooKeeperServiceDiscovery(balanceTypeEnum);
+        this.unprocessedRequests = SingletonFactory.getInstance(UnprocessedRequests.class);
+        this.retryPolicy = retryPolicy;
+    }
+
     public NettyConsumerTransport(LoadBalance loadBalance) {
         this.serviceDiscovery = new ZooKeeperServiceDiscovery(loadBalance);
         this.unprocessedRequests = SingletonFactory.getInstance(UnprocessedRequests.class);
+        this.retryPolicy = new ExponentialBackOffRetry(2000, 10, 60 * 1000);
     }
     public NettyConsumerTransport() {
         this.serviceDiscovery = new ZooKeeperServiceDiscovery();
         this.unprocessedRequests = SingletonFactory.getInstance(UnprocessedRequests.class);
+        this.retryPolicy = new ExponentialBackOffRetry(2000, 10, 60 * 1000);
     }
 
     @Override
@@ -63,5 +76,9 @@ public class NettyConsumerTransport implements ConsumerTransport {
         }
 
         return resultFuture;
+    }
+
+    public RetryPolicy getRetryPolicy() {
+        return retryPolicy;
     }
 }

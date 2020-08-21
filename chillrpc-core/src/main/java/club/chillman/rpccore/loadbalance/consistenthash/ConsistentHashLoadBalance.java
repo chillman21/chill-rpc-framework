@@ -10,7 +10,10 @@ import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
 /**
- * 负载均衡器，使用一致性哈希算法
+ * 负载均衡器，使用一致性哈希算法;
+ * 一致性哈希在大批量的负载请求的情况下效果很好
+ * 小规模节点的负载均衡效果不是特别好
+ * 优点是如果一个节点挂了只会影响顺时针的下一个节点
  * @author NIU
  * @createTime 2020/7/22 17:18
  */
@@ -53,8 +56,8 @@ public class ConsistentHashLoadBalance extends AbstractLoadBalance {
             }
         } else {
 
-            log.info("旧地址列表为:{}", cachedServiceAddresses);
-            log.info("新地址列表为:{}", serviceAddresses);
+            log.info("The old address list is:{}", cachedServiceAddresses);
+            log.info("The new address list is:{}", serviceAddresses);
             Set<String> set = new HashSet<>(serviceAddresses);
             // 求交集 并存入set
             set.retainAll(cachedServiceAddresses);
@@ -72,7 +75,7 @@ public class ConsistentHashLoadBalance extends AbstractLoadBalance {
             }
             this.cachedServiceAddresses = serviceAddresses;
         }
-        log.info("更新后地址列表为:{}", hashCircle.values());
+        log.info("The updated address list is:{}", hashCircle.values());
     }
 
 

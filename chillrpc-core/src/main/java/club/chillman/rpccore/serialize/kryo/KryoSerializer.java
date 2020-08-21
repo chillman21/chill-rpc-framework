@@ -12,7 +12,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
 /**
- *  Kryo序列化类，Kryo序列化效率很高，但是只兼容 Java 语言
+ *  Kryo序列化类，Kryo序列化效率很高，速度仅次于protostuff，最大的优点是体积小，但是只兼容 Java 语言
  * @author NIU
  * @createTime 2020/7/20 23:41
  */
@@ -26,7 +26,7 @@ public class KryoSerializer implements Serializer {
         kryo.register(RemoteResponse.class);
         kryo.register(RemoteRequest.class);
         kryo.setReferences(true); //默认值为true,是否关闭注册行为,关闭之后可能存在序列化问题，一般推荐设置为 true
-        kryo.setRegistrationRequired(false); //默认值为false,是否关闭循环引用，可以提高性能，但是一般不推荐设置为 true
+        kryo.setRegistrationRequired(false); //默认值为false,是否关闭循环引用，开启可以提高性能，但是一般不推荐设置为 true
         return kryo;
     });
     @Override
@@ -36,7 +36,7 @@ public class KryoSerializer implements Serializer {
             Kryo kryo = kryoThreadLocal.get();
             // Object->byte:将对象序列化为byte数组
             kryo.writeObject(output, obj);
-            kryoThreadLocal.remove();
+            kryoThreadLocal.remove();//help to GC
             return output.toBytes();
         } catch (Exception e) {
             throw new SerializeException("序列化失败");
@@ -46,7 +46,7 @@ public class KryoSerializer implements Serializer {
     @Override
     public <T> T deserialize(byte[] bytes, Class<T> clazz) {
         try (ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
-             Input input = new Input(byteArrayInputStream)) {
+            Input input = new Input(byteArrayInputStream)) {
             Kryo kryo = kryoThreadLocal.get();
             // byte->Object:从byte数组中反序列化出对对象
             Object o = kryo.readObject(input, clazz);

@@ -18,6 +18,7 @@ public final class SingletonFactory {
     public static <T> T getInstance(Class<T> c) {
         String key = c.toString();
         Object instance = objectMap.get(key);
+        if (instance != null) return c.cast(instance);
         synchronized (c) {
             if (instance == null) {
                 try {

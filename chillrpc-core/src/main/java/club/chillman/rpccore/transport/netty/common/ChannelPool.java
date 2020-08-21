@@ -16,11 +16,12 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @Slf4j
 public class ChannelPool {
-    private static Map<String, Channel> channelMap = new ConcurrentHashMap<>();
+    private static Map<String, Channel> channelMap;
     private static NettyConsumer nettyConsumer;
 
     static {
         nettyConsumer = SingletonFactory.getInstance(NettyConsumer.class);
+        channelMap = new ConcurrentHashMap<>();
     }
 
     private ChannelPool() {
@@ -46,7 +47,20 @@ public class ChannelPool {
 
     public static void remove(InetSocketAddress inetSocketAddress) {
         String key = inetSocketAddress.toString();
-        channelMap.remove(key);
+        Channel channel = channelMap.remove(key);
         log.info("Channel池的大小为 :[{}]", channelMap.size());
+    }
+    public static Channel put(InetSocketAddress inetSocketAddress, Channel channel) {
+        String key = inetSocketAddress.toString();
+        Channel oldChannel = channelMap.put(key, channel);
+        log.info("Channel池的大小为 :[{}]", channelMap.size());
+        return oldChannel;
+    }
+    public static boolean isActive(InetSocketAddress inetSocketAddress) {
+        String key = inetSocketAddress.toString();
+        if (channelMap.containsKey(key)) {
+            return channelMap.get(key).isActive();
+        }
+        return false;
     }
 }
