@@ -26,9 +26,14 @@ import java.util.concurrent.CompletableFuture;
 public class RemoteConsumerProxy implements InvocationHandler {
 
     private final ConsumerTransport consumerTransport;
+    private String group;
 
     public RemoteConsumerProxy(ConsumerTransport consumerTransport) {
         this.consumerTransport = consumerTransport;
+    }
+    public RemoteConsumerProxy(ConsumerTransport consumerTransport, String group) {
+        this.consumerTransport = consumerTransport;
+        this.group = group;
     }
 
     @SuppressWarnings("unchecked")

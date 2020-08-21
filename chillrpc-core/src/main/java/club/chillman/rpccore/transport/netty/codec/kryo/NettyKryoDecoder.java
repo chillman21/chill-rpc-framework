@@ -57,7 +57,7 @@ public class NettyKryoDecoder extends ByteToMessageDecoder {
             }
             // 6.走到这里说明没什么问题了，可以序列化了
             byte[] body = new byte[dataLength];
-            in.readBytes(body);
+            in.readBytes(body);//in -> body
             // 将bytes数组转换为我们需要的对象
             Object obj = serializer.deserialize(body, genericClass);
             result.add(obj);

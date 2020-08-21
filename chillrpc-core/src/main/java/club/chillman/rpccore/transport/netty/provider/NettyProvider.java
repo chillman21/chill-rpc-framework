@@ -56,6 +56,11 @@ public class NettyProvider {
         serviceRegistry.registerService(serviceClass.getCanonicalName(), new InetSocketAddress(host, port));
         //start();
     }
+    public <T> void publishService(T service, Class<T> serviceClass, String group) {
+        serviceSupplier.putService(service, serviceClass);
+        serviceRegistry.registerService(serviceClass.getCanonicalName(), new InetSocketAddress(host, port));
+        //start();
+    }
     public void start() {
         if (host == null || port == 0){
             throw new RuntimeException("Provider未初始化");
@@ -78,7 +83,7 @@ public class NettyProvider {
                         @Override
                         protected void initChannel(SocketChannel ch) {
                             // 30 秒之内没有收到客户端请求的话就关闭连接
-                            ch.pipeline().addLast(new IdleStateHandler(10, 0, 0, TimeUnit.SECONDS));
+                            ch.pipeline().addLast(new IdleStateHandler(30, 0, 0, TimeUnit.SECONDS));
                             ch.pipeline().addLast(new NettyKryoDecoder(kryoSerializer, RemoteRequest.class));
                             ch.pipeline().addLast(new NettyKryoEncoder(kryoSerializer, RemoteResponse.class));
                             ch.pipeline().addLast(new NettyProviderHandler());

@@ -127,7 +127,7 @@ public class ConsistentHashLoadBalance extends AbstractLoadBalance {
 
     /**
      * 摘要是128位，共16个byte
-     * number为0就是digest 低32位，3是digest 高32位
+     * number为0就是digest 低32位;3是digest 高32位
      * 结果的long的高32位都为0
      * <p>
      * 因为生成的结果是一个32位数，若用int保存可能会产生负数。而一致性hash生成的逻辑环其hashCode的范围是在 0 - MAX_VALUE之间。因此为正整数，所以这里要强制转换为long类型，避免出现负数。

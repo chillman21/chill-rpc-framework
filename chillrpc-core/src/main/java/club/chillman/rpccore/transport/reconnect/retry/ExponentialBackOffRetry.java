@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.Random;
 
 /**
+ * 默认的retry策略
  * @author NIU
  * @createTime 2020/8/20 23:14
  */

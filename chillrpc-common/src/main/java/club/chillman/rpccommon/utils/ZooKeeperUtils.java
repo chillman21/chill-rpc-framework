@@ -19,6 +19,8 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
+import static org.apache.curator.framework.recipes.cache.PathChildrenCacheEvent.Type.*;
+
 /**
  * ZooKeeper工具类
  * @author NIU
@@ -34,7 +36,7 @@ public final class ZooKeeperUtils {
     private static Set<String> registeredPathSet = ConcurrentHashMap.newKeySet();
     private static CuratorFramework zkClient;
 
-    static {
+    static {//加载ZK配置
         try {
             Properties properties = new Properties();
             // 使用ClassLoader加载properties配置文件生成对应的输入流
@@ -91,7 +93,7 @@ public final class ZooKeeperUtils {
         List<String> result;
         String servicePath = ZK_REGISTER_ROOT_PATH + "/" + serviceName;
         try {
-            // forPath底层源码：把getChildren,并查找ServicePath的任务加入异步任务队列
+            // forPath底层源码：getChildren,并查找ServicePath的任务加入异步任务队列
             result = zkClient.getChildren().forPath(servicePath);
             serviceAddressMap.put(serviceName, result);
             registerWatcher(zkClient, serviceName);
@@ -104,14 +106,17 @@ public final class ZooKeeperUtils {
     /**
      * 注册监听指定节点，保证节点变化时缓存与ZK的一致性。
      *
-     * @param serviceName 服务对象接口名 eg:github.javaguide.HelloService
+     * @param serviceName 服务对象接口名
      */
     private static void registerWatcher(CuratorFramework zkClient, String serviceName) {
         String servicePath = ZK_REGISTER_ROOT_PATH + "/" + serviceName;
         PathChildrenCache pathChildrenCache = new PathChildrenCache(zkClient, servicePath, true);
         PathChildrenCacheListener pathChildrenCacheListener = (curatorFramework, pathChildrenCacheEvent) -> {
-            List<String> serviceAddresses = curatorFramework.getChildren().forPath(servicePath);
-            serviceAddressMap.put(serviceName, serviceAddresses);
+             List<String> serviceAddresses = curatorFramework.getChildren().forPath(servicePath);
+             serviceAddressMap.put(serviceName, serviceAddresses);
+             if (pathChildrenCacheEvent.getType() == CHILD_REMOVED) {
+                serviceAddressMap.remove(serviceName);
+            }
         };
         pathChildrenCache.getListenable().addListener(pathChildrenCacheListener);
         try {

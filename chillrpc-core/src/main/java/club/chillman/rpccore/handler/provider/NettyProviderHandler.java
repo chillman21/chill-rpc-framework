@@ -22,10 +22,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class NettyProviderHandler extends ChannelInboundHandlerAdapter {
 
-    private final RemoteRequestHandler remoteRequestHandler;
+    private final RemoteRequestHandler remoteRequestInvoker;
 
     public NettyProviderHandler() {
-        this.remoteRequestHandler = SingletonFactory.getInstance(RemoteRequestHandler.class);
+        this.remoteRequestInvoker = SingletonFactory.getInstance(RemoteRequestHandler.class);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class NettyProviderHandler extends ChannelInboundHandlerAdapter {
                 return;
             }
             // 执行目标方法（客户端需要执行的方法）并且返回方法结果
-            Object result = remoteRequestHandler.handle(remoteRequest);
+            Object result = remoteRequestInvoker.handle(remoteRequest);
             log.info(String.format("server get result: %s", result.toString()));
             // Consumer端在线且通道可写
             if (ctx.channel().isActive() && ctx.channel().isWritable()) {

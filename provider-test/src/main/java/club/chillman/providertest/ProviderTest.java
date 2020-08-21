@@ -14,7 +14,7 @@ public class ProviderTest {
     public static void main(String[] args) {
         TestService testService = new TestServiceImpl();
         NettyProvider nettyProvider = new NettyProvider("127.0.0.1", 5428);
-        nettyProvider.publishService(testService, TestService.class);
+        nettyProvider.publishService(testService, TestService.class,"group1");
         nettyProvider.start();
         //System.out.println(testService.wow(new Test("aaa", 1)));
 

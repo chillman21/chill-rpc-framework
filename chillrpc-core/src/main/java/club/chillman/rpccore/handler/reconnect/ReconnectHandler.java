@@ -54,7 +54,6 @@ public class ReconnectHandler extends ChannelInboundHandlerAdapter {
             eventLoop.schedule(() -> {
                 log.info("Reconnecting ...");
                 //实现断线重连
-                System.out.println("0000"+ inetSocketAddress);
                 Channel channel = consumer.doConnect(inetSocketAddress);
                 if (channel.isActive()) {
                     ChannelPool.put(inetSocketAddress, channel);

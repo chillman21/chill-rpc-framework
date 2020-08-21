@@ -14,7 +14,7 @@ import club.chillman.serviceapi.TestService;
 public class ConsumerTest {
     public static void main(String[] args) {
         ConsumerTransport consumerTransport = new NettyConsumerTransport(BalanceTypeEnum.RANDOM_ACCESS);
-        RemoteConsumerProxy remoteProxy = new RemoteConsumerProxy(consumerTransport);
+        RemoteConsumerProxy remoteProxy = new RemoteConsumerProxy(consumerTransport, "group1");
         TestService testService = remoteProxy.getProxyObject(TestService.class);
         for (int i = 0; i < 10; i++) {
             System.out.println(testService.wow(new Test("aaa", i)));
